@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <title>SmartStore | Full Stack Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="images/logo.png" alt="SmartStore Logo">
+  </div>
+
+  <div class="menu-icon" id="mobile-btn">☰</div>
+
+  <nav class="navbar">
+    <ul class="nav-links" id="nav-menu">
+
+      <li><a href="#home" class="nav-item">Home</a></li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-link" aria-haspopup="true">Features</a>
+        <ul class="dropdown-menu">
+          <li><a href="#features">Inventory</a></li>
+          <li><a href="#features">Billing</a></li>
+          <li><a href="#features">Reports</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-link">Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Installation</a></li>
+          <li><a href="#">Training</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact" class="nav-item">Contact</a></li>
+
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Smart Inventory & Billing System</h1>
+    <p>
+      Manage products, customers and billing with a secure full-stack solution.
+    </p>
+    <button class="cta" id="cta-btn">Get Started</button>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <h2>Why Choose SmartStore?</h2>
+
+  <div class="feature-box">
+    <div class="feature">
+      <img src="images/inventory.png" alt="Inventory management icon">
+      <h3>Inventory Management</h3>
+      <p>Track stock, update items and manage products easily.</p>
+    </div>
+
+    <div class="feature">
+      <img src="images/billing.png" alt="billing system icon">
+      <h3>Billing System</h3>
+      <p>Generate invoices and calculate totals automatically.</p>
+    </div>
+
+    <div class="feature">
+      <img src="images/security.png" alt="Secure login icon">
+      <h3>Secure Login</h3>
+      <p>User authentication with database protection.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: support@smartstore.com</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 SmartStore. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+</footer>
+
+<script>
+const mobileBtn = document.getElementById("mobile-btn");
+const navMenu = document.getElementById("nav-menu");
+const dropdownLinks = document.querySelectorAll(".dropdown-link");
+const ctaBtn = document.getElementById("cta-btn");
+
+/* Mobile menu */
+mobileBtn.onclick = () => navMenu.classList.toggle("active");
+
+/* Dropdown toggle mobile */
+dropdownLinks.forEach(link=>{
+  link.addEventListener("click",e=>{
+    if(window.innerWidth<=768){
+      e.preventDefault();
+      const parent = link.parentElement;
+      document.querySelectorAll(".dropdown.active")
+      .forEach(d=>d!==parent && d.classList.remove("active"));
+      parent.classList.toggle("active");
+    }
+  });
+});
+
+/* CTA scroll */
+ctaBtn.onclick=()=>document.querySelector("#features")
+.scrollIntoView({behavior:"smooth"});
+
+/* Close menu after click */
+document.querySelectorAll(".nav-links a").forEach(link=>{
+ link.addEventListener("click",()=>navMenu.classList.remove("active"));
+});
+
+/* ESC closes dropdown */
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape"){
+  document.querySelectorAll(".dropdown.active")
+  .forEach(d=>d.classList.remove("active"));
+ }
+});
+</script>
+
+</body>
+</html>
