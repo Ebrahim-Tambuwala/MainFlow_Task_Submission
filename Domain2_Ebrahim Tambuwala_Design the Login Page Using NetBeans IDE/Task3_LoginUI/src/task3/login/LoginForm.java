@@ -12,11 +12,12 @@ import javax.swing.JOptionPane;
  * @author Murtuza
  */
 public class LoginForm extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form LoginForm
      */
     public LoginForm() {
+        
         initComponents();
         setSize(400, 300);
         setLocationRelativeTo(null);
@@ -71,8 +72,8 @@ public class LoginForm extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 60, 5, 5);
         getContentPane().add(jLabel2, gridBagConstraints);
 
+        usernameField.setColumns(15);
         usernameField.setToolTipText("Enter Username");
-        usernameField.setPreferredSize(new java.awt.Dimension(200, 28));
         usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameFieldActionPerformed(evt);
@@ -95,8 +96,8 @@ public class LoginForm extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 60, 15, 5);
         getContentPane().add(jLabel3, gridBagConstraints);
 
+        passwordField.setColumns(15);
         passwordField.setToolTipText("Enter Password");
-        passwordField.setPreferredSize(new java.awt.Dimension(200, 28));
         passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordFieldActionPerformed(evt);
@@ -168,10 +169,12 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
         // TODO add your handling code here:
+        passwordField.requestFocus();
     }//GEN-LAST:event_usernameFieldActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
+        loginButton.doClick();
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**
