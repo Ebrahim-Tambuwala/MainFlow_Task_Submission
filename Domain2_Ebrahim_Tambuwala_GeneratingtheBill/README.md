@@ -1,4 +1,3 @@
----
 
 # 🧾 Task 7 – Generating the Bill
 
