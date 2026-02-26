@@ -3,12 +3,12 @@
 -- Task 7: Invoice Generation Support
 -- =============================================
 
--- 1 Create Database
+-- 1️⃣ Create Database
 CREATE DATABASE IF NOT EXISTS store_db;
 USE store_db;
 
 -- =============================================
--- 2 Users Table (With Role Support)
+-- 2️⃣ Users Table (With Role Support)
 -- =============================================
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -25,7 +25,7 @@ INSERT INTO users (username, email, password, role) VALUES
 ('seller1', 'seller1@gmail.com', '123', 'seller');
 
 -- =============================================
--- 3 Products Table
+-- 3️⃣ Products Table
 -- =============================================
 CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -50,7 +50,7 @@ INSERT INTO products (name, category, price, quantity, description) VALUES
 ('Webcam', 'Accessories', 1800, 30, 'HD 1080p webcam');
 
 -- =============================================
--- 4 Buyers Table
+-- 4️⃣ Buyers Table
 -- =============================================
 CREATE TABLE IF NOT EXISTS buyers (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -67,7 +67,7 @@ INSERT INTO buyers (name, email, phone, address) VALUES
 ('Amit Verma', 'amit@test.com', '9988776655', 'Delhi, India');
 
 -- =============================================
--- 5 Transactions Table
+-- 5️⃣ Transactions Table
 -- =============================================
 CREATE TABLE IF NOT EXISTS transactions (
     transaction_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -77,9 +77,9 @@ CREATE TABLE IF NOT EXISTS transactions (
     FOREIGN KEY (buyer_id) REFERENCES buyers(id)
         ON DELETE CASCADE
 );
-SELECT * FROM transactions;
+
 -- =============================================
--- 6️ Transaction Items Table
+-- 6️⃣ Transaction Items Table
 -- =============================================
 CREATE TABLE IF NOT EXISTS transaction_items (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS transaction_items (
     FOREIGN KEY (product_id) REFERENCES products(id)
         ON DELETE CASCADE
 );
-SELECT * FROM transaction_items;
+
 -- =============================================
 -- DATABASE READY FOR TASK 7
 -- =============================================
